@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>chatRoom-index</title>
+    <link rel="stylesheet" type="text/css" href="style/chat.css">
+</head>
+<body>
+<div class="login">
+    <div class="login-wrap">
+        <div class="login-form check-part">
+            <span class="sign-btn sign-btn-active" id="sign-in">登录</span>
+            <span class="sign-btn" id="sign-up">注册</span>
+        </div>
+        <form class="login-form  dispear" id="sign-up-form">
+            <div class="login-form-child">
+                <label for="account-number" class="login-form-label">账号：</label>
+                <input type="text" id="account-number" class="login-form-input">
+                <p class="login-tip"></p>
+            </div>
+            <div class="login-form-child">
+                <label for="pass-word" class="login-form-label">密码：</label>
+                <input type="text" id="pass-word" class="login-form-input">
+                <p class="login-tip"></p>
+            </div>
+            <div class="login-form-child">
+                <label for="user-name" class="login-form-label">昵称：</label>
+                <input type="text" id="user-name" class="login-form-input">
+                <p class="login-tip"></p>
+            </div>
+            <div class="login-form-child">
+                <label for="room-name" class="login-form-label">房号：</label>
+                <input type="text" id="room-name" class="login-form-input">
+                <p class="login-tip"></p>
+            </div>
+        </form>
+        <form class="login-form" id="sign-in-form">
+            <div class="login-form-child">
+                <label for="account-number" class="login-form-label">账号：</label>
+                <input type="text" id="sign-in-number" class="login-form-input">
+                <p class="login-tip"></p>
+            </div>
+            <div class="login-form-child">
+                <label for="pass-word" class="login-form-label">密码：</label>
+                <input type="password" id="sign-in-password" class="login-form-input">
+                <p class="login-tip"></p>
+            </div>
+        </form>
+        <form class="login-form">
+            <div class="login-form-child">
+                <span class="login-btn">确定</span>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="chat-room">
+    <h1 class="tit" id="room-tit"><!--欢迎来到yyj的聊天室--></h1>
+    <p class="content"></p>
+    <form class="tool">
+        <div class="write-board">
+            <input type="text" name="write" class="write-box">
+        </div>
+        <a href="javascript:" class="send">发送</a>
+    </form>
+</div>
+</body>
+</html>
+<script src="socket.io/socket.io.js"></script>
+<script src="js/config.js" type="text/javascript"></script>
+<script src="js/chat.js" type="text/javascript"></script>
+<script src="js/login.js" type="text/javascript"></script>
