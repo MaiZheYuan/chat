@@ -1,0 +1,15 @@
+.DS_Store
+node_modules/
+dist/
+npm-debug.log
+npm-debug.log.*
+yarn-error.log
+test/unit/coverage
+test/funtest
+static/app.appcache
+static/config/fuzhou/env.js
+.idea/workspace.xml
+.idea/
+/debug.log
+.cep
+*.mp4
