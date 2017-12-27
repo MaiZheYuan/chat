@@ -1,0 +1,59 @@
+{
+	"111": {
+		"accountNumber": "111",
+		"passWord": "111",
+		"userName": "佛挡杀",
+		"roomName": "test"
+	},
+	"222": {
+		"accountNumber": "222",
+		"passWord": "222",
+		"userName": "防辐射",
+		"roomName": "test"
+	},
+	"333": {
+		"accountNumber": "333",
+		"passWord": "333",
+		"userName": "袁大师",
+		"roomName": "test"
+	},
+	"444": {
+		"accountNumber": "444",
+		"userName": "防守打法",
+		"roomName": "test"
+	},
+	"555": {
+		"accountNumber": "555",
+		"passWord": "222",
+		"userName": "发生的",
+		"roomName": "test"
+	},
+	"666": {
+		"accountNumber": "666",
+		"userName": "袁小师",
+		"roomName": "test"
+	},
+	"744": {
+		"accountNumber": "744",
+		"userName": "大幅度",
+		"roomName": "test"
+	},
+	"755": {
+		"accountNumber": "755",
+		"passWord": "755",
+		"userName": "问问",
+		"roomName": "test"
+	},
+	"2222": {
+		"accountNumber": "2222",
+		"passWord": "2222",
+		"userName": "第三方",
+		"roomName": "test"
+	},
+	"123456": {
+		"accountNumber": "123456",
+		"passWord": "123",
+		"userName": "中午嗖",
+		"roomName": "test"
+	}
+}

@@ -1,0 +1,225 @@
+/*================================public===========================================*/
+.dispear{
+    display: none;
+}
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+body{  }
+input{outline:none}
+p,h1,h2,h3,h4,h5,li,ul,a{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    color: #000;
+}
+/* =============================注册登录====================================== */
+.login{
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.login-wrap{
+    padding: 20px;
+    background: #fff;
+}
+.sign-btn{
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    margin: 0 20px;
+    background: #eee;
+    color: #000;
+    cursor: pointer;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    transition: all 0.5s;
+}
+.sign-btn-active{
+    background: #000;
+    color: #fff;
+}
+.login-form{
+}
+.check-part{
+    padding: 0;
+    text-align: center;
+}
+.login-form-child{
+    width: 100%;
+    margin: 20px 0;
+    text-align: center;
+}
+.login-form-label{
+
+}
+.login-form-input{
+
+}
+.login-tip{
+    font-size: 12px;
+    color: #666;
+   height: 20px;
+   line-height: 20px;
+   vertical-align: middle; 
+}
+.warn{
+    color:#f00;
+}
+.login-btn{
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    line-height: 30px;
+    vertical-align: middle;
+    padding: 10px;
+    border-radius: 50%;
+    background: #eee;
+    color: #000;
+    cursor: pointer;
+    transition: all 0.5s;
+    border: 1px solid #aaa;
+}
+.login-btn:hover{
+    color: #fff;
+    background: #000;
+}
+/* ==================================聊天室====================================== */
+.chat-room {
+    box-sizing: border-box;
+    padding: 5px;
+    width: 100%;
+    height: 100%;
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.tit {
+    box-sizing: border-box;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #000;
+    border-radius: 5px;
+    font-size: 30px;
+    font-weight: bold;
+    height: 60px;
+    line-height:60px;
+}
+
+.content {
+    box-sizing: border-box;
+    margin-top: 10px;
+    border-radius: 2px;
+    border: 1px solid #000;
+    height: 100%;
+    padding: 20px;
+    overflow: auto;
+}
+
+.tool {
+    text-align: center;
+    margin-top: 10px;
+    padding: 5px;
+    display: flex;
+    border: 1px solid #000;
+    border-radius: 5px;
+    align-items: center;
+}
+.write-board{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+}
+.write-box {
+    /*text-indent: 20px;*/
+    border: none;
+    width: 100%;
+    /*padding: 10px;*/
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.send{
+    display: inline-block;
+    padding: 0 5px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+.send:hover{
+    color: #0af;
+}
+.chat-line{
+    margin-top: 10px;
+    overflow: hidden;
+}
+.chat-man{
+    float: left;
+    display: inline-flex;
+    width: 35px;
+    height: 35px;
+    margin: 7px 10px 5px 0;
+    border-radius: 50%;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    border: 3px solid #aaa;
+    background: #000;
+    color: #fff;
+}
+.chat-moment{
+    font-size: 10px;
+    display: block;
+}
+.chat-mess{
+    box-sizing: border-box;
+    display: inline-block;
+    max-width: 60%;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    padding: 6px;
+    border-radius: 3px;
+    background: rgba(100,100,100,0.8);
+    color: #fff;
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.chat-moment-me{
+    text-align: right;
+}
+.chat-man-me{
+    background: #eee;
+    color: #000;
+    border-color: #aaa;
+    float: right;
+    margin: 7px 0 5px 10px;
+}
+.chat-mess-me{
+    float: right;
+}
+.chat-in{
+    display: block;
+    text-align: center;
+    font-size: 10px;
+    color: rgb(0,100,255);
+}
+.chat-out{
+    display: block;
+    text-align: center;
+    font-size: 10px;
+    color: rgb(255,100,0);
+}
