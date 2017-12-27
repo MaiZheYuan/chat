@@ -44,25 +44,15 @@
     };
     //主动呼叫，打开摄像头
     function mediaStart(userName,linkUserName) {
-        //记录用户信息
-        navigator.getUserMedia({ audio: true, video: { width: 1280, height: 720 } },
-            function(stream) {
-                alert(555);
-            },
-            function(err) {
-                alert(444);
-                console.log("The following error occurred: " + err.name);
-            }
-        );
-       /* var getUserMedia = navigator.mediaDevices.getUserMedia({ audio: false, video: true });
+        var getUserMedia = navigator.mediaDevices.getUserMedia({ audio: false, video: true });
         getUserMedia
             .then(start)
             .catch(error=>{
                 test.innerText = JSON.stringify(error);
                 console.error("mediaStart,getUserMedia"+error)
-            });*/
+            });
         function start(mediaStream) {
-//            video.srcObject = mediaStream;
+            video.srcObject = mediaStream;
             alert("getUserMedia");
             pc.addStream(mediaStream);
             //创建并发送视频请求
