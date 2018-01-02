@@ -1,5 +1,10 @@
 var isAddIceCandidate = false;
 var chatTool = {};
+var isCaller = false;
+var offerOptions = {
+    offerToReceiveAudio: 1,
+    offerToReceiveVideo: 1
+};
 var video = document.querySelector('video');
 var othersCD = [];
 var iceServer = {
@@ -47,18 +52,19 @@ pc.onicecandidate = function(event){
 chatTool.socket.on( "getCd",function (val) {
     // if(isAddIceCandidate){
     othersCD.push(val.candidate);
-    pc.addIceCandidate(new RTCIceCandidate(val.candidate))
+    !isCaller && pc.addIceCandidate(new RTCIceCandidate(val.candidate))
         .then(function () {
             console.log("addIceCandidate");
         })
         .catch(function (err) {
-            console.log(err,"addIceCandidate failed")
+            console.log("addIceCandidate failed",err)
         })
     // }else {console.log("not ready!")}
 } );
 
 //主动呼叫，打开摄像头
 function mediaStart(userName,linkUserName) {
+    isCaller = true;
     var userMedia = navigator.mediaDevices.getUserMedia({ audio: false, video: true });
     userMedia
         .then(start)
@@ -70,9 +76,9 @@ function mediaStart(userName,linkUserName) {
         pc.addStream(mediaStream);
         //创建并发送视频请求
         pc.createOffer(function(offer) {
-            pc.setLocalDescription(new RTCSessionDescription(offer), function() {
+            pc.setLocalDescription(offer, function() {
                 console.log("call,setLocalDescription");
-                chatTool.socket.emit("linkTo",{user:userName,man:linkUserName,offer:offer});
+                chatTool.socket.emit("linkTo",{user:userName,man:linkUserName,offer:pc.localDescription});
                 // send the offer to a server to be forwarded to the friend you're calling.
             }, error=>{console.error("mediaStart,setLocalDescription#"+error)});
         }, error=>{console.error("mediaStart,createOffer#"+error)});
@@ -93,12 +99,11 @@ function wasCalled(val){
         pc.setRemoteDescription(new RTCSessionDescription(offer), function() {
             console.log("wascall,setRemoteDescription");
             isAddIceCandidate = true;
-            // setTimeout(addCD,3000)
             pc.createAnswer(function(answer) {
-                pc.setLocalDescription(new RTCSessionDescription(answer), function() {
+                pc.setLocalDescription(answer, function() {
                     console.log("wascall,setLocalDescription");
                     test.innerText = val.man;
-                    chatTool.socket.emit("linkAnswer",{man:val.man,answer:answer});
+                    chatTool.socket.emit("linkAnswer",{man:val.man,answer:pc.localDescription});
                 }, error=>{console.error("wasCalled,setLocalDescription#"+error)});
             }, error=>{console.error("wasCalled,setLocalDescription#"+error)});
         }, error=>{console.error("wasCalled,setRemoteDescription#"+error)});
@@ -140,11 +145,11 @@ chatTool.socket.on("linkReq",function(val){
 chatTool.socket.on("linkOk",function (val) {
     var answer = val.offer;
     pc.setRemoteDescription(
-        new RTCSessionDescription(answer),
+        answer,
         function() {
             console.log("call,setRemoteDescription")
             isAddIceCandidate = true;
-            // setTimeout(addCD,3000)
+            addCD();
         },
         function (err) {
             console.log(err,"linkOk,setRemoteDescription")
