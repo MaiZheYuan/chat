@@ -14,6 +14,16 @@
             color: #f00;
             cursor: pointer;
         }
+        .send-btn{
+            background: #0f0;
+            height: 40px;
+        }
+        /*.send-btn:hover{*/
+            /*background: #f00;*/
+        /*}*/
+        .content-show{
+
+        }
     </style>
 </head>
 <body>
@@ -23,25 +33,38 @@
 <div class="link-form">
     <label for="link-to">要连接的id</label><input type="text" id="link-to"><span id="link">join</span>
 </div>
-<div id="test"></div>
-<video id="video" autoplay></video>
-
+<div>
+    <p class="send-btn"><span>本地ICE状态：</span><span id="localIceState"></span></p>
+    <p class="send-btn"><span>远程ICE状态：</span><span id="remoteIceState"></span></p>
+</div>
+<div>
+    <h1>本地sdp</h1>
+    <p class="send-btn" id="sdpLocalCreate">生成</p>
+    <span class="content-show" id="sdpLocal"></span>
+    <p class="send-btn" id="sdpLocalBtn">发送</p>
+</div>
+<div>
+    <h1>远程sdp</h1>
+    <span class="content-show" id="sdpRemote"></span>
+    <p class="send-btn" id="sdpRemoteBtn">设置</p>
+</div>
+<div>
+    <h1>本地cd</h1>
+    <p class="send-btn" id="localIceStateBtn">查看localIce状态</p>
+    <span class="content-show" id="cdLocal"></span>
+    <p class="send-btn" id="cdLocalBtn">发送</p>
+</div>
+<div>
+    <h1>远程cd</h1>
+    <p class="send-btn" id="remoteIceStateBtn">查看remoteIce状态</p>
+    <span class="content-show" id="cdRemote"></span>
+    <p class="send-btn" id="cdRemoteBtn">设置</p>
+</div>
+<video id="remoteVideo" autoplay></video>
+<video id="localVideo" autoplay></video>
 </body>
 
 <script src="socket.io/socket.io.js"></script>
-<!--<script>
-    var p = navigator.mediaDevices.getUserMedia({ audio: false, video: true });
-    p.then(start);
-    p.catch(function(err) { console.log(err.name); }); // always check for errors at the end.
-    function start(mediaStream) {
-        alert(444);
-        var video = document.querySelector('video');
-        video.srcObject = mediaStream;
-        video.onloadedmetadata = function(e) {
-            // Do something with the video here.
-        };
-    }
-</script>-->
 <script src="js/media.js"></script>
 
 </html>
